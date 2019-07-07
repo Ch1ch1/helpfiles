@@ -6,7 +6,7 @@ The Linux kernel provides an advanced framework for various network-related oper
 ## Delete (Flush) existing rules
 Let's start by clearing out all pre-existing rules in the firewall. You can use the "Flush" command to do this.
 
-'iptables -F'
+`iptables -F`
 Set the default chain policies
 Now that the firewall is empty, we can initialize the default policies. Any traffic that does not match a rule in the firewall will fallback on the default policy (in this case, we will block all traffic by default).
 
