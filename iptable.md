@@ -1,12 +1,12 @@
-#Iptables cheat-sheet
+# Iptables cheat-sheet
 
 
 The Linux kernel provides an advanced framework for various network-related operations through the use of the Netfilter module. Netfilter allows various forms of packet filtering and address translation on your network stack. By using the iptables utility, you can customize the behaviour of netfilter to do various tasks and improve security. Here, I will show a brief set of common commands one may want to use when administrating a Linux host.
 
-##Delete (Flush) existing rules
+## Delete (Flush) existing rules
 Let's start by clearing out all pre-existing rules in the firewall. You can use the "Flush" command to do this.
 
-    iptables -F
+'iptables -F'
 Set the default chain policies
 Now that the firewall is empty, we can initialize the default policies. Any traffic that does not match a rule in the firewall will fallback on the default policy (in this case, we will block all traffic by default).
 
