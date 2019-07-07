@@ -105,3 +105,6 @@ Similarly, we should allow POP3 access to this machine.
 Ports can be forwarded from the external address to a machine on the private network easily.
 
 `iptables -t nat -A PREROUTING -p tcp -d 1.2.3.4 --dport 422 -j DNAT --to 192.168.0.100:22`
+
+
+Source [UnixNija](https://www.unix-ninja.com/p/An_iptables_cheat-sheet)
