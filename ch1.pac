@@ -21,6 +21,6 @@ function FindProxyForURL(url, host) {
   return "DIRECT";
 
  
-  // Route vers proxy Zscaler - Renvoi des proxy du pays de géolocatlisation
+  // Route vers proxy
   return "192.168.3.1:3128";
 }
