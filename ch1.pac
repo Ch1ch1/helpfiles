@@ -6,7 +6,7 @@ function FindProxyForURL(url, host) {
   // Résoudre une première fois l'adresse de destination
   var resolved_ip = dnsResolve(host);
 
-  // Comparer le résultat resolved_ip a la liste des IP hors proxy
+  // Comparer le résultat resolved_ip a la liste des IP privées
   if (
     isPlainHostName(host) ||
     isInNet(resolved_ip, "10.0.0.0", "255.0.0.0") ||
