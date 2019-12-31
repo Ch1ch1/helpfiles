@@ -1,18 +1,26 @@
+// Fonction Proxy
 function FindProxyForURL(url, host) {
-  var privateIP = /^(0|10|127|192\.168|172\.1[6789]|172\.2[0-9]|172\.3[01]|169\.254|192\.88\.99)\.[0-9.]+$/;
+  // Lowercase des noms de domaines
+  host = host.toLowerCase();
+
+  // Résoudre une première fois l'adresse de destination
   var resolved_ip = dnsResolve(host);
 
-  /* Don't send non-FQDN or private IP auths to us */
+  // Comparer le résultat resolved_ip a la liste des IP hors proxy
   if (
     isPlainHostName(host) ||
-    isInNet(resolved_ip, "192.0.2.0", "255.255.255.0") ||
-    privateIP.test(resolved_ip)
+    isInNet(resolved_ip, "10.0.0.0", "255.0.0.0") ||
+    isInNet(resolved_ip, "172.16.0.0", "255.240.0.0") ||
+    isInNet(resolved_ip, "192.168.0.0", "255.255.0.0") ||
+    isInNet(resolved_ip, "127.0.0.0", "255.255.255.0") ||
   )
     return "DIRECT";
 
-  /* FTP goes directly */
-  if (url.substring(0, 4) == "ftp:") return "DIRECT";
+  FTP, send direct
+  if (url.substring(0,4) == "ftp:")
+  return "DIRECT";
 
-  /* Default Traffic Forwarding. Forwarding to Zen on port 80, but you can use port 9400 also */
+ 
+  // Route vers proxy Zscaler - Renvoi des proxy du pays de géolocatlisation
   return "192.168.3.1:3128";
 }
